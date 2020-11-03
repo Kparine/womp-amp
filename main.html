@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html ⚡>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,minimum-scale=1,initial-scale=1"
+		/>
+		<meta name="description" content="This is the AMP Boilerplate." />
+		<link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" />
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<script
+			async
+			custom-element="amp-accordion"
+			src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"
+		></script>
+		<script
+			async
+			custom-element="amp-sidebar"
+			src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+		></script>
+
+		<!-- Import other AMP Extensions here -->
+		<style amp-custom>
+			.sidebar-item {
+				display: flex;
+				background-color: #f8f9fa;
+				justify-content: end;
+				align-items: center;
+			}
+			.sidebar-group {
+				flex-direction: column;
+				margin-bottom: 22px;
+				display: flex;
+			}
+			#sidebar1 {
+				background-color: #eaecf0;
+			}
+
+			.sidebar-sub-links-content {
+				display: flex;
+				justify-content: space-around;
+			}
+			.header-container {
+				display: flex;
+				background-color: #eaecf0;
+				border: 0;
+				box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.08);
+				height: 55px;
+				align-items: center;
+			}
+			.header-content {
+				margin: 5px;
+				display: flex;
+				width: 100%;
+				justify-content: space-between;
+			}
+			#first-heading {
+				margin-bottom: 15px;
+				padding: 0;
+				font-size: 1.8em;
+				font-weight: normal;
+				overflow: visible;
+				line-height: 1.3;
+			}
+			.article-container {
+				display: flex;
+				height: 100vh;
+			}
+			.article-content {
+				margin: 5px;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.subheader-container {
+				display: flex;
+				border: 0;
+				min-height: 50px;
+				margin: 10px;
+				align-items: center;
+				box-sizing: border-box;
+				border-top: 1px solid #eaecf0;
+				border-bottom: 1px solid #c8ccd1;
+			}
+			.subheader-content {
+				display: flex;
+				width: 100%;
+				justify-content: space-between;
+			}
+			.head-group-1 {
+				display: flex;
+			}
+			.sub-group-1 {
+				width: 70px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.article-title {
+				font-size: 27px;
+				font-family: "Linux Libertine";
+			}
+			.infobox-container {
+				border: 1px solid #a2a9b1;
+				border-spacing: 3px;
+				background-color: #f8f9fa;
+				color: black;
+				padding: 0.2em;
+				float: right;
+				clear: right;
+				font-size: 88%;
+				line-height: 1.5em;
+				height: 90px;
+				margin-bottom: 20px;
+			}
+			.infobox-content {
+				padding: 5px;
+				font-size: 95%;
+				width: 100%;
+			}
+			.infobox-content-items {
+				display: flex;
+				justify-content: space-between;
+				margin: 5px;
+			}
+			.content-label {
+				display: flex;
+				justify-content: center;
+				font-weight: bolder;
+				font-size: 15px;
+			}
+			tbody {
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			tr {
+				display: table-row;
+				vertical-align: inherit;
+				border-color: inherit;
+			}
+			.bullet {
+				color: #000;
+			}
+			.article-anchor-content {
+				font-size: 10px;
+			}
+			.accordian-container {
+				width: 100%;
+			}
+			.false-link {
+				color: #194eb1;
+				font-weight: 300;
+			}
+			.false-link:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.false-link:visited {
+				color: #0b0080;
+			}
+			.bolden {
+				font-weight: bolder;
+			}
+		</style>
+		<style amp-boilerplate>
+			body {
+				-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+			}
+			@-webkit-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-moz-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-ms-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-o-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+		</style>
+		<noscript>
+			<style amp-boilerplate>
+				body {
+					-webkit-animation: none;
+					-moz-animation: none;
+					-ms-animation: none;
+					animation: none;
+				}
+			</style></noscript
+		>
+		<link rel="canonical" href="." />
+		<title>Wikipedia</title>
+	</head>
+	<body>
+		<div class="main">
+			<amp-sidebar id="sidebar1" layout="nodisplay" style="width: 300px">
+				<amp-nested-menu layout="fill">
+					<div class="sidebar-group">
+						<div class="sidebar-item" style="border-bottom: 0.5px solid #9e9e9e;">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/home.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Home</h4>
+						</div>
+						<div class="sidebar-item" style="border-bottom: 0.5px solid #9e9e9e;">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/dice.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Random</h4>
+						</div>
+						<div class="sidebar-item">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/tool.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Nearby</h4>
+						</div>
+					</div>
+					<div class="sidebar-group">
+						<div class="sidebar-item">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/login.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Log in</h4>
+						</div>
+					</div>
+					<div class="sidebar-group">
+						<div class="sidebar-item">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/gear.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Settings</h4>
+						</div>
+					</div>
+					<div class="sidebar-group">
+						<div class="sidebar-item">
+							<amp-img
+								alt="wikipedia-logo"
+								src="../images/like.svg"
+								width="30"
+								height="20"
+							>
+							</amp-img>
+							<h4 amp-nested-submenu-open>Donate</h4>
+						</div>
+					</div>	
+						<div class='sidebar-sub-links-content'>
+							<div class="false-link">About Wikipedia</div>
+							<div class="false-link">Disclaimers</div>
+						</div>
+					</amp-nested-menu>
+				</amp-nested-menu>
+			</amp-sidebar>
+			<div class="header-container">
+				<div class="header-content">
+					<div class="head-group-1">
+						<amp-img
+							alt="menu-icon"
+							src="../images/menu.svg"
+							width="35"
+							height="20"
+							on="tap:sidebar1"
+							role="button"
+							tabindex="0"
+						>
+						</amp-img>
+						<amp-img
+							alt="wikipedia-logo"
+							src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Wikipedia_wordmark.svg"
+							width="128"
+							height="20"
+						>
+						</amp-img>
+					</div>
+					<amp-img
+						alt="wikipedia-logo"
+						src="../images/search.svg"
+						width="30"
+						height="20"
+					>
+					</amp-img>
+				</div>
+			</div>
+			<div class="article-container">
+				<div class="article-content">
+					<h1 id="first-heading">Accelerated Mobile Pages</h1>
+					<div class="subheader-container">
+						<div class="subheader-content">
+							<amp-img
+								alt="translate-icon"
+								src="../images/translate.svg"
+								width="20"
+								height="20"
+							>
+							</amp-img>
+							<div class="sub-group-1">
+								<amp-img
+									alt="favorite-logo"
+									src="../images/star.svg"
+									width="20"
+									height="20"
+								>
+								</amp-img>
+								<amp-img
+									alt="edit-logo"
+									src="../images/edit.svg"
+									width="20"
+									height="20"
+								>
+								</amp-img>
+							</div>
+						</div>
+					</div>
+					<div>
+						<p class="article-item">
+							<span class="bolden">AMP</span> (originally an acronym for
+							<span class="bolden"> Accelerated Mobile Pages</span>
+							<sup class="false-link">[1]</sup>) is an open source HTML
+							framework developed by the AMP Open Source Project.
+							<sup class="false-link">[2]</sup> It was originally created by
+							Google as a competitor to Facebook Instant Articles and Apple
+							News. <sup class="false-link">[3]</sup> AMP is optimized for
+							mobile web browsing and intended to help webpages load faster.
+							<sup class="false-link">[4]</sup> AMP pages may be cached by a
+							CDN, such as Microsoft Bing or Cloudflare's AMP caches, which
+							allows pages to be served more quickly.
+							<sup class="false-link">[5][6][7]</sup> AMP was first announced on
+							October 7, 2015.<sup class="false-link">[8]</sup> After a
+							technical preview period, AMP pages began appearing in Google
+							mobile search results in February 2016.
+							<sup class="false-link">[9][10]</sup> AMP was initially criticized
+							for potentially giving further control over the web to Google.
+							<sup class="false-link">[11]</sup> The AMP Project announced it
+							would move to an open governance model on September 18, 2018.
+							<sup class="false-link">[12][13]</sup>
+						</p>
+					</div>
+
+					<div class="infobox-container">
+						<div class="infobox-content">
+							<div class="content-label">Accelerated Mobile Pages</div>
+							<div class="infobox-content-items">
+								<div class="info-group-one">
+									<div class="bullet">Created By</div>
+									<div class="bullet">URL</div>
+									<div class="bullet">Launched</div>
+								</div>
+								<div class="info-group-two">
+									<div class="false-link">Google</div>
+									<div class="false-link">amp.dev</div>
+									<div>October 7, 2015; 5 years ago</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordian-container">
+						<amp-accordion animate>
+							<section>
+								<h1>
+									<amp-img
+										alt="edit-logo"
+										src="../images/down-chevron.svg"
+										width="30"
+										height="20"
+									>
+									</amp-img
+									>History
+								</h1>
+								<div>
+									<h2 class="sub-heading">Announcement and launch</h2>
+									<p class="article-item">
+										The AMP Project was announced by Google on October 7, 2015,
+										following discussions with its partners in the
+										<span class="false-link"> Digital News Initiative</span>
+										(DNI), and other news publishers and technology companies
+										around the world, about improving the performance of the
+										mobile web. More than 30 news publishers and several
+										technology companies (including
+										<span class="false-link"> Twitter</span>,
+										<span class="false-link"> Pinterest</span>,
+										<span class="false-link"> LinkedIn</span> and
+										<span class="false-link"> WordPress</span>) were initially
+										announced as collaborators in the AMP Project.
+										<sup class="false-link">[14][15]</sup> AMP pages first
+										appeared to web users in February 2016, when Google began to
+										show the AMP versions of webpages in mobile search results.
+										Initially links to AMP pages were restricted to a “Top
+										Stories” section of Google's mobile search results; by
+										September 2016 Google started linking to AMP content in the
+										main mobile search results area.
+										<sup class="false-link">[16]</sup> AMP links in Google
+										search are identified with an icon. According to one of the
+										co-founders of the AMP Project, Malte Ubl, AMP was
+										originally called PCU,
+										<sup class="false-link">[17]</sup> which stood for Portable
+										Content Unit.
+									</p>
+									<h2 class="sub-heading">Growth and expansion</h2>
+									<p class="article-item">
+										In September 2016, Microsoft announced support for AMP in
+										the Bing apps for iOS and Android.
+										<sup class="false-link">[18]</sup> In February 2017, a year
+										after the public launch of AMP, Adobe reported AMP pages
+										accounted for 7% of all web traffic for top publishers in
+										the United States.<sup class="false-link">[19]</sup>
+										In May 2017, Google reported 900,000 web domains were
+										publishing AMP pages with more than two billion AMP pages
+										published globally.
+										<sup class="false-link">[20]</sup> In June 2017, Twitter
+										started linking to AMP pages from its iOS and Android apps.
+										<sup class="false-link">[21]</sup> In September 2018,
+										Microsoft began rolling out its own Bing AMP viewer and AMP
+										cache. <sup class="false-link">[22]</sup> On December 7,
+										2018, AMP announced their official WordPress plugin,
+										<sup class="false-link">[23]</sup> which allowed WordPress
+										websites to include AMP-ready pages. As announced by AMP's
+										tech lead Malte at AMP Conf '19, AMP is now just AMP, and
+										does not stand for Accelerated Mobile Pages anymore.
+										<sup class="false-link">[24]</sup>
+									</p>
+								</div>
+							</section>
+							<section>
+								<h2>
+									<amp-img
+										alt="edit-logo"
+										src="../images/down-chevron.svg"
+										width="30"
+										height="20"
+									>
+									</amp-img
+									>Technology
+								</h2>
+								<div>
+									<h2 class="sub-heading">Announcement and launch</h2>
+									<p class="article-item">
+										The AMP Project was announced by Google on October 7, 2015,
+										following discussions with its partners in the
+										<span class="false-link"> Digital News Initiative</span>
+										(DNI), and other news publishers and technology companies
+										around the world, about improving the performance of the
+										mobile web. More than 30 news publishers and several
+										technology companies (including
+										<span class="false-link"> Twitter</span>,
+										<span class="false-link"> Pinterest</span>,
+										<span class="false-link"> LinkedIn</span> and
+										<span class="false-link"> WordPress</span>) were initially
+										announced as collaborators in the AMP Project.
+										<sup class="false-link">[14][15]</sup> AMP pages first
+										appeared to web users in February 2016, when Google began to
+										show the AMP versions of webpages in mobile search results.
+										Initially links to AMP pages were restricted to a “Top
+										Stories” section of Google's mobile search results; by
+										September 2016 Google started linking to AMP content in the
+										main mobile search results area.
+										<sup class="false-link">[16]</sup> AMP links in Google
+										search are identified with an icon. According to one of the
+										co-founders of the AMP Project, Malte Ubl, AMP was
+										originally called PCU,
+										<sup class="false-link">[17]</sup> which stood for Portable
+										Content Unit.
+									</p>
+									<h2 class="sub-heading">Growth and expansion</h2>
+									<p class="article-item">
+										In September 2016, Microsoft announced support for AMP in
+										the Bing apps for iOS and Android.
+										<sup class="false-link">[18]</sup> In February 2017, a year
+										after the public launch of AMP, Adobe reported AMP pages
+										accounted for 7% of all web traffic for top publishers in
+										the United States.<sup class="false-link">[19]</sup>
+										In May 2017, Google reported 900,000 web domains were
+										publishing AMP pages with more than two billion AMP pages
+										published globally.
+										<sup class="false-link">[20]</sup> In June 2017, Twitter
+										started linking to AMP pages from its iOS and Android apps.
+										<sup class="false-link">[21]</sup> In September 2018,
+										Microsoft began rolling out its own Bing AMP viewer and AMP
+										cache. <sup class="false-link">[22]</sup> On December 7,
+										2018, AMP announced their official WordPress plugin,
+										<sup class="false-link">[23]</sup> which allowed WordPress
+										websites to include AMP-ready pages. As announced by AMP's
+										tech lead Malte at AMP Conf '19, AMP is now just AMP, and
+										does not stand for Accelerated Mobile Pages anymore.
+										<sup class="false-link">[24]</sup>
+									</p>
+								</div>
+							</section>
+						</amp-accordion>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
