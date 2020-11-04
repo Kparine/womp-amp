@@ -39,8 +39,6 @@
 			custom-template="amp-mustache"
 			src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
 		></script>
-
-		<!-- Import other AMP Extensions here -->
 		<style amp-custom>
 			.sidebar-item {
 				display: flex;
@@ -70,6 +68,8 @@
 				align-items: center;
 				min-height: 55px;
 				background-color: #eaecf0;
+				border: 0;
+				box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.08);
 			}
 			.header-container {
 				display: flex;
@@ -347,7 +347,6 @@
 				layout="nodisplay"
 				style="width: 400px"
 			>
-				<amp-nested-menu layout="fill" style="background-color: #f8f9fa">
 					<div class="search-container">
 						<div class="search-content">
 							<form
@@ -357,7 +356,7 @@
 								target="_top"
 							>
 								<amp-autocomplete filter="substring">
-									<input placeholder="🔍 Search Wikipedia" />
+									<input placeholder="🔍 Search Wikipedia..." />
 									<script type="application/json">
 										{
 											"items": [
@@ -370,11 +369,9 @@
 											]
 										}
 									</script>
-								</amp-autocomplete>
 							</form>
 						</div>
 					</div>
-				</amp-nested-menu>
 			</amp-sidebar>
 			<div class="header-container">
 				<div class="header-content">
